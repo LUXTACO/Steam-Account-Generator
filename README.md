@@ -2,7 +2,9 @@
 
 A "simple" steam account generator using the selenium webdriver also has the ability to use proxies, its not finished and I dont really have intentions on finishing it, Im just posting so that you can use it (maybe I'll update if I see that its doing good on github).
 
-[![showcase](https://github.com/LUXTACO/ProtonMailGen/blob/5917a13aec07f3639854ef8255789875559986e2/assets/showcase.png?raw=true "showcase")](https://github.com/LUXTACO/ProtonMailGen/blob/5917a13aec07f3639854ef8255789875559986e2/assets/showcase.png?raw=true "showcase")
+[![showcase](https://github.com/LUXTACO/SteamGen/blob/main/media/Captura%20de%20pantalla%202023-01-14%20180206.png?raw=true "showcase")](https://github.com/LUXTACO/SteamGen/blob/main/media/Captura%20de%20pantalla%202023-01-14%20180206.png?raw=true "showcase")
+
+
 ##  Installation
 Use the following commands to install the loader!
 ```python
