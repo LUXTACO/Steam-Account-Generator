@@ -1,18 +1,14 @@
 import os
 import time
 import random
-import string
-import csv
 import sys
-import selenium
 import requests
 import ctypes
 from selenium import webdriver
-from colorama import Fore, Back, Style
-from pynput.keyboard import Key, Controller
+from colorama import Fore
+from pynput.keyboard import Controller
 from selenium.webdriver.common.by import By
 from pystyle import Colorate, Colors, Center
-from selenium.webdriver.chrome.options import Options 
 
 def title():
 	os.system("cls")
