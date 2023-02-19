@@ -42,4 +42,6 @@ And more to come in the future!
 
 - [@LUXTACO](https://github.com/LUXTACO "@LUXTACO")
 
+FOR EDUCATIONAL PURPOSES ONLY!
+
 
