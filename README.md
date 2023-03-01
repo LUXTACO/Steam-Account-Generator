@@ -8,12 +8,14 @@ A "simple" steam account generator using the selenium webdriver also has the abi
 ##  Installation
 Use the following commands to install the loader!
 ```python
-pip install colorama
-pip install selenium
-pip install pystyle
-pip install pynput
-pip install random
-pip install requests
+Libraries needed: 
+
+pystyle
+pyautogui
+colorama
+selenium
+random
+
 ```
 ## Compatibility
 
