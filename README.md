@@ -38,6 +38,32 @@ This are the current features included in the generator!
 
 And more to come in the future!
 
+## Update!
+
+So I "updated" the generator and it should work better now (keyword: should) im not gonna update it anymore because it is an actual NIGHTMARE to try and make this shit code work, if you want to modify the code go for it I dont really care and tbh im done, and this is mostly because of this shitty code right here:
+
+```python
+        s = "----- Steam Account -----"
+        u = "Username: " + username
+        p = "Password: " + password
+        e = "Email: " + email
+        d = "-------------------------"
+        with open("accounts.txt", "a") as f:
+            f.write(s)
+            f.write("\n")
+            f.write(u)
+            f.write("\n")
+            f.write(p)
+            f.write("\n")
+            f.write(e)
+            f.write("\n")
+            f.write(d)
+            f.write("\n")
+            f.flush()
+            f.close()
+```
+It just doesn't work, I've tried everything but I can't get it to work if you know what may be causing the error please open an issue and tell me, tysm bye.
+
 ## Credits
 
 - [@LUXTACO](https://github.com/LUXTACO "@LUXTACO")
