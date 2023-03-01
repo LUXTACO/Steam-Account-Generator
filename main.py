@@ -1,170 +1,236 @@
 import os
 import time
 import random
-import string
-import csv
-import sys
-import selenium
-import requests
 import ctypes
-from selenium import webdriver
+import pyautogui
+import subprocess
 from colorama import Fore, Back, Style
-from pynput.keyboard import Key, Controller
 from selenium.webdriver.common.by import By
 from pystyle import Colorate, Colors, Center
-from selenium.webdriver.chrome.options import Options 
+
+# Selenium
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# Vars
+
+hits = 0
+miss = 0
+amount = 0
+emailchoice = 0
+
+
+# Functions
 
 def title():
-	os.system("cls")
-	banner = (Colorate.Vertical(Colors.red_to_purple, """
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t███████╗████████╗███████╗ █████╗ ███╗   ███╗ ██████╗ ███████╗███╗   ██╗
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t██╔════╝╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██╔════╝ ██╔════╝████╗  ██║
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t███████╗   ██║   █████╗  ███████║██╔████╔██║██║  ███╗█████╗  ██╔██╗ ██║
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t╚════██║   ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██╔══╝  ██║╚██╗██║
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t███████║   ██║   ███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗██║ ╚████║
-	\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝
- 
-========================================================================================================================                                                                             
-	"""))
-	print(banner)
-	print (Center.XCenter(f"""{Fore.LIGHTMAGENTA_EX}
-	>> {Fore.LIGHTRED_EX}Made By Taquito{Fore.LIGHTMAGENTA_EX}
-	>> {Fore.LIGHTRED_EX}Version 1.0 {Fore.LIGHTMAGENTA_EX}
- """))
+    banner = Center.XCenter(Colorate.Vertical(Colors.red_to_purple, """
+                        ███████╗████████╗███████╗ █████╗ ███╗   ███╗ ██████╗ ███████╗███╗   ██╗
+                        ██╔════╝╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██╔════╝ ██╔════╝████╗  ██║
+                        ███████╗   ██║   █████╗  ███████║██╔████╔██║██║  ███╗█████╗  ██╔██╗ ██║
+                        ╚════██║   ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██╔══╝  ██║╚██╗██║
+                        ███████║   ██║   ███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗██║ ╚████║
+                        ╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝
+                
+========================================================================================================================                                                                       
+    """))
+    try:
+        os.system("cls")
+    except:
+        os.system("clear")
+    print(banner)
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Welcome to SteamGen!\n{Fore.RESET}"))
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Made By: @LUXTACO\n{Fore.RESET}"))
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Version: 1.5\n{Fore.RESET}"))
+    
 
-def gname():
-	name = ['anita', 'robert', 'jones', 'laver', 'gratsher', 'killoms', 'ramez', 'sarah', 'michael', 'david', 'jennifer', 'chris', 'emily', 'john', 'jessica', 'matthew', 'ashley', 'mike', 'amanda']
-	suffix = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-	
-	csuffix = random.choice(suffix)
-	rname = random.choice(name)
+def pass_gen():
+    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+"
+    password = ""
+    for c in range(16):
+        password += random.choice(chars)
+    return password
 
-	rngsuffix = random.choice(suffix)
-	i = 0
-	while i < 4:
-		rngsuffix += random.choice(suffix)
-		i += 1
+def user_gen():
+    suffix = ['Best', 'Ratchet', 'Baller', 'Big', 'Money']
+    name_list = ['Lil', 'Big', 'Young', 'Old', 'Dope', 'Savage', 'Crazy', 'Swag', 'Dank', 'Lit', 'Savage', 'Crazy']
+    prefix = ['Swag', 'Dank', 'Lit', 'Savage', 'Crazy']
+    
+    name = random.choice(suffix) + random.choice(name_list) + random.choice(suffix)
+    
+    return name
 
-	final_name = rname + rngsuffix
-	return final_name
+def get_email():
+    global emailchoice
+    
+    with open("email.txt", "r") as f:
+        emails = f.readlines()
+        tempmail = emails[emailchoice].strip()
+        f.close()
+    return tempmail
 
-def gpass():
-	numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-	alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-	
-	i = 0
-	password = random.choice(numbers) + random.choice(alphabet)
-	while i < 4:
-		password += random.choice(numbers) + random.choice(alphabet)
-		i += 1
+# Bools
 
-	return password
+fail = False
 
-def gmail():
-    # open the source file
-    with open('./emails.txt', 'r') as data:
-        first_line = data.readline().strip()
-        email_lines = [line.strip() for line in data]
+# User Agent
 
-    # Filter out the used lines
-    with open('./used_lines_file.txt', 'r') as used_data:
-        used_lines = [line.strip() for line in used_data]
-    filtered_lines = [line for line in email_lines if line not in used_lines]
+ua = 'Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36'
 
-    # write the used lines to another file
-    with open('./used_emails.txt', 'w') as used_file:
-        for line in email_lines:
-            if line in used_lines:
-                used_file.write(line + '\n')
+# Main
 
-    # write the remaining lines back to the original file
-    with open('./emails.txt', 'w') as data:
-        for line in filtered_lines:
-            data.write(line + '\n')
-
-    return first_line
-
-amount = "unknown"
-ctypes.windll.kernel32.SetConsoleTitleW("SteamGen | Accounts to generate: " + amount + " | ")
 title()
+ctypes.windll.kernel32.SetConsoleTitleW(f"SteamGen V1.5 | Hits: {hits} | Miss: {miss} | Made By: @LUXTACO")
 
-url = 'https://store.steampowered.com/join?l=english'
-amount = input(Center.XCenter(f">> {Fore.LIGHTRED_EX}Accounts to generate: {Fore.LIGHTMAGENTA_EX}"))
-ctypes.windll.kernel32.SetConsoleTitleW("SteamGen | Accounts to generate: " + amount + " | ")
+visual = input(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Do you want to use visual feedback? (y/n): {Fore.RESET}"))
 
-amount = int(amount)
-prox = input(Center.XCenter(f">> {Fore.LIGHTRED_EX}Use proxies? (Y/N): {Fore.LIGHTMAGENTA_EX}"))
-print(f" {Fore.LIGHTRED_EX}")
-
+if visual == "y" or visual == "Y":
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Visual feedback enabled!{Fore.RESET}"))
+    options = Options()
+    options.add_argument(f'--user-agent={ua}')
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--mute-audio")
+    options.add_argument('--no-sandbox')
+    options.add_argument("log-level=3")
+    options.add_argument('--no-sandbox')
+    options.add_extension("./solver/solver.crx")
+    driver = webdriver.Chrome(options=options)
+    wait = WebDriverWait(driver, 20)
+else:
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Visual feedback disabled!{Fore.RESET}"))
+    options = Options()
+    options.add_argument(f'--user-agent={ua}')
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--mute-audio")
+    options.add_argument('--no-sandbox')
+    options.add_argument("log-level=3")
+    options.add_argument("--headless")
+    options.add_argument('--no-sandbox')
+    options.add_extension("./solver/solver.crx")
+    driver = webdriver.Chrome(options=options)
+    wait = WebDriverWait(driver, 20)
+    
+amount = int(input(Center.XCenter(f"{Fore.RED}\n>> {Fore.LIGHTMAGENTA_EX}How many accounts do you want to generate?: {Fore.RESET}")))
+    
 while amount != 0:
-	email = gmail()
-	passw = gpass()
-	user = gname()
-	amount = str(amount)
-	ctypes.windll.kernel32.SetConsoleTitleW("SteamGen | Accounts to generate: " + amount + " | ")
-	
-	r = 0
-	if prox == 'y' or prox == 'Y':
-			with open('./proxies.txt', 'r') as data:
-				proxy_lines = [line.strip() for line in data]
-			proxy_from_file = "false"
-			while (proxy_from_file == "false"):
-				r += 1
-				print(proxy_lines[r])
-				try:
-					proxies_file = {'http':'http://:@{}/'.format(proxy_lines[r])}
-					requests.get("http://store.steampowered.com/", proxies=proxies_file, timeout=1.5)
-				except OSError:
-					print ("Proxy Connection error!")
-					proxy_from_file = "false"
-					sys.stdout.write("\033[F")
-					sys.stdout.write("\033[K") 
-					sys.stdout.write("\033[F")
-					sys.stdout.write("\033[K") 
-				else:
-					print ("Proxy is working...")
-					r += 1
-					options = webdriver.ChromeOptions()
-					options.add_argument('--proxy-server=%s'.format(proxy_lines[r]))
-					proxy_from_file = "true"
-					driver = webdriver.Chrome(options=options)
-	else:
-			driver = webdriver.Chrome()
-			pass
-
-	keyboard = Controller()
-
-	driver.get(url)
-
-	driver.find_element(By.ID, "email").send_keys(email)
- 
-	driver.find_element(By.ID, "reenter_email").send_keys(email)
- 
-	time.sleep(3)
- 
-	driver.find_element(By.ID, "i_agree_check").click()
-	
-	print("\n")
-	print(Center.XCenter(f"{Fore.LIGHTMAGENTA_EX}>> {Fore.LIGHTRED_EX}Please solve the captcha! {Fore.LIGHTRED_EX}"))
-	wait = input(Center.XCenter(f"{Fore.LIGHTMAGENTA_EX}>> {Fore.LIGHTRED_EX}Press ENTER to continue...\n{Fore.LIGHTRED_EX}"))
- 
-	driver.find_element(By.XPATH, '//*[@id="createAccountButton"]').click()
- 
-	print(Center.XCenter(f"{Fore.LIGHTMAGENTA_EX}>> {Fore.LIGHTRED_EX}Please verify the email: {Fore.LIGHTRED_EX}" + email + "!"))
-	wait = input(Center.XCenter(f"{Fore.LIGHTMAGENTA_EX}>> {Fore.LIGHTRED_EX}Press ENTER to continue...\n{Fore.LIGHTRED_EX}"))
- 
-	driver.find_element(By.ID, "accountname").send_keys(user)
- 
-	driver.find_element(By.ID, "password").send_keys(passw)
- 
-	driver.find_element(By.ID, "reenter_password").send_keys(passw)
-	
-	driver.find_element(By.XPATH, '//*[@id="createAccountButton"]').click()
- 
-	amount = int(amount)
-	amount -= 1
- 
-	account = user + ":" + passw
-	with open("accounts.txt", "w") as f:
-		f.write(account)
-		f.write("\n")
+    
+    fail = False
+    
+    username = user_gen()
+    password = pass_gen()
+    email = get_email()
+    
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Username: {username} | Password: {password} | Email: {email} {Fore.RESET}"))
+    
+    amount = str(amount)
+    print(Center.XCenter(f"{Fore.RED}>> {Fore.LIGHTMAGENTA_EX}Amount: {emailchoice} | Hits: {hits} | Misses: {miss} {Fore.RESET}"))
+    ctypes.windll.kernel32.SetConsoleTitleW(f"SteamGen V1.5 | Hits: {hits} | Miss: {miss} | Made By: @LUXTACO")
+    amount = int(amount)
+    
+    try: 
+        driver.get("https://store.steampowered.com/join/")
+        print(f"{Fore.LIGHTMAGENTA_EX}Opened Steam!{Fore.RESET}")
+        print(f"{Fore.LIGHTMAGENTA_EX}Waiting for page load!{Fore.RESET}")
+        wait.until(EC.presence_of_element_located((By.XPATH, '/html/body')))
+        print(f"{Fore.LIGHTMAGENTA_EX}Page loaded!{Fore.RESET}")
+    except:
+        print(f"{Fore.LIGHTMAGENTA_EX}Not able to reach the page!{Fore.RESET}")
+        print(f"{Fore.LIGHTMAGENTA_EX}Retrying...{Fore.RESET}")
+        miss += 1
+        fail = True
+        pass
+    
+    if fail == False:
+        try:
+            driver.find_element(By.XPATH, '//*[@id="email"]' ).send_keys(email)
+            driver.find_element(By.XPATH, '//*[@id="reenter_email"]' ).send_keys(email)
+        except:
+            print(f"{Fore.LIGHTMAGENTA_EX}Unable to enter email!{Fore.RESET}")
+            miss += 1
+            fail = True
+            pass
+        
+        if fail == False:
+            
+            try: 
+                print(f"{Fore.LIGHTMAGENTA_EX}Solving Captcha!{Fore.RESET}")
+                time.sleep(15)
+                if visual == "y" or visual == "Y":
+                    if pyautogui.pixel(115, 686)[1] == 158:
+                        print(f"{Fore.LIGHTMAGENTA_EX}Captcha Solved!{Fore.RESET}")
+                    else:
+                        print(f"{Fore.LIGHTMAGENTA_EX}Cannot recognise if captcha is solved!{Fore.RESET}")
+                        input(f"{Fore.LIGHTMAGENTA_EX}Please solve it, once solved press ENTER!{Fore.RESET}")
+                else:
+                    time.sleep(15)
+                    print(f"{Fore.LIGHTMAGENTA_EX}Cant verify if captcha is solved please choose visual feedback next time!{Fore.RESET}")
+                    print(f"{Fore.LIGHTMAGENTA_EX}Captcha solved I guess... {Fore.RESET}")
+            except:
+                print(f"{Fore.LIGHTMAGENTA_EX}Captcha not solved!{Fore.RESET}")
+                input(f"{Fore.LIGHTMAGENTA_EX}Please solve it, once solved press ENTER!{Fore.RESET}")
+            
+            if fail == False:
+                try:
+                    driver.find_element(By.XPATH, '//*[@id="i_agree_check"]' ).click()
+                    driver.find_element(By.XPATH, '//*[@id="createAccountButton"]').click()
+                    print(f"{Fore.LIGHTMAGENTA_EX}Please verify email!{Fore.RESET}")
+                    input(f"{Fore.LIGHTMAGENTA_EX}Once verified press ENTER!{Fore.RESET}")
+                except:
+                    print(f"{Fore.LIGHTMAGENTA_EX}Unable to create account!{Fore.RESET}")
+                    miss += 1
+                    fail = True
+                    pass
+                
+                if fail == False:
+                    try:
+                        print(f"{Fore.LIGHTMAGENTA_EX}Waiting for page load!{Fore.RESET}")
+                        wait.until(EC.presence_of_element_located((By.XPATH, '/html/body')))
+                        print(f"{Fore.LIGHTMAGENTA_EX}Page loaded!{Fore.RESET}")
+                        time.sleep(1)
+                        print(f"{Fore.LIGHTMAGENTA_EX}Entering username!{Fore.RESET}")
+                        driver.find_element(By.XPATH, '//*[@id="accountname"]' ).send_keys(username)
+                        time.sleep(1)
+                        print(f"{Fore.LIGHTMAGENTA_EX}Entering password!{Fore.RESET}")
+                        driver.find_element(By.XPATH, '//*[@id="password"]' ).send_keys(password)
+                        driver.find_element(By.XPATH, '//*[@id="reenter_password"]' ).send_keys(password)
+                        time.sleep(1)
+                        print(f"{Fore.LIGHTMAGENTA_EX}Creating Account!{Fore.RESET}")
+                        driver.find_element(By.XPATH, '//*[@id="createAccountButton"]')
+                        time.sleep(1)
+                        print(f"{Fore.LIGHTMAGENTA_EX}Account created!{Fore.RESET}")
+                        print(f"{Fore.LIGHTMAGENTA_EX}Saving Credentials!{Fore.RESET}")
+                    except:
+                        print(f"{Fore.LIGHTMAGENTA_EX}Unable to enter username!{Fore.RESET}")
+                        miss += 1
+                        fail = True
+                        pass
+            
+    elif fail == True:
+        driver.quit()
+        pass
+    
+    if fail == False:
+        s = "----- Steam Account -----"
+        u = "Username: " + username
+        p = "Password: " + password
+        e = "Email: " + email
+        d = "-------------------------"
+        with open("accounts.txt", "a") as f:
+            f.write(s)
+            f.write("\n")
+            f.write(u)
+            f.write("\n")
+            f.write(p)
+            f.write("\n")
+            f.write(e)
+            f.write("\n")
+            f.write(d)
+            f.write("\n")
+            f.flush()
+            f.close()
+        amount -= 1
+        emailchoice += 1
