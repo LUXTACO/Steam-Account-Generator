@@ -44,13 +44,13 @@ And more to come in the future!
 
 So I "updated" the generator and it should work better now I've added a lot of things but also removed some other things.
 
-# Added
+#### Added [ + ]
 - Captcha solver (100 solves per day)
 - Better name gen
 - Better password gen
 - Added try: and except: so that it wouldnt crash anymore
 
-# Removed
+#### Removed [ - ]
 - Proxy Support
 
 ## Credits
