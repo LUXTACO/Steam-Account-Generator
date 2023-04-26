@@ -6,7 +6,8 @@ A "simple" steam account generator using the selenium webdriver also has the abi
 
 
 ##  Installation
-Use the following commands to install the loader!
+Use the following commands to run the generator!
+
 ```python
 
 pip install requests
