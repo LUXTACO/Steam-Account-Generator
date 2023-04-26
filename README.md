@@ -42,19 +42,6 @@ This are the current features included in the generator!
 
 And more to come in the future!
 
-## Update!
-
-So I "updated" the generator and it should work better now I've added a lot of things but also removed some other things.
-
-#### Added [ + ]
-- Captcha solver (100 solves per day)
-- Better name gen
-- Better password gen
-- Added try: and except: so that it wouldnt crash anymore
-
-#### Removed [ - ]
-- Proxy Support
-
 ## Credits
 
 - [@LUXTACO](https://github.com/LUXTACO "@LUXTACO")
