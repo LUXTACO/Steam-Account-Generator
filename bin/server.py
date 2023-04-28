@@ -237,6 +237,7 @@ while True:
         
     elif fail == True:
         driver.quit()
+        driver.delete_all_cookies()
         pass
     
     if fail == False:
@@ -263,6 +264,8 @@ while True:
         emailchoice += 1
         hits += 1
         amount_acc += 1
+        
+        driver.delete_all_cookies()
         
     if amount <= 0:
         print(f"{Colors.pink}>> {Colors.white}Done!{Colors.white}")
