@@ -229,12 +229,12 @@ while True:
                         wait.until(EC.presence_of_element_located((By.XPATH, '/html/body')))
                         print(f"{Colors.pink}>> {Colors.white}Account created!{Colors.white}")
                         print(f"{Colors.pink}>> {Colors.white}Saving account!{Colors.white}")
+                        time.sleep(2)
                     except:
                         print(f"{Colors.pink}>> {Colors.white}Failed to create account!{Colors.white}")
                         miss += 1
                         fail = True
                         pass
-        
     elif fail == True:
         driver.quit()
         driver.delete_all_cookies()
