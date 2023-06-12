@@ -18,10 +18,10 @@ A fully autonomous steam account generator with email auto verification and a ga
 
 ## Key Types
 - Premium
- * Server
- * Dotter
- * Game Idler
- * Auto Mail Verifier
+  * Server
+  * Dotter
+  * Game Idler
+  * Auto Mail Verifier
 
 ```
 Price: $10 per key
@@ -30,8 +30,8 @@ Support: High priority
 ```
 
 - Basic
- * Server
- * Dotter
+  * Server
+  * Dotter
 
 ```
 Price: $10 per key
