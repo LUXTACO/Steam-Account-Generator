@@ -6,13 +6,13 @@ A fully autonomous steam account generator with email auto verification and a ga
 
 ## Pros & Cons
 
-- [ + ] Cheap
-- [ + ] Fully autonomous
-- [ + ] No need to install libraries manually
+ [ + ] Cheap
+ [ + ] Fully autonomous
+ [ + ] No need to install libraries manually
 
-- [ - ] Only HQ proxies
-- [ - ] Email verification needs dot method
-- [ - ] Python 3.11 needed
+ [ - ] Only HQ proxies
+ [ - ] Email verification needs dot method
+ [ - ] Python 3.11 needed
 
 # SteamGen Prices
 
