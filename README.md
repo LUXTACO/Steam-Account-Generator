@@ -5,15 +5,15 @@ A fully autonomous steam account generator with email auto verification and a ga
 ![image](./.github/show.png)
 
 ## Pros & Cons
-
-### General
+___
+### General stuff
 
 | Pros                          | Cons                                      |
 |-------------------------------|-------------------------------------------|
 | [ + ] Cheap                   | [ - ] Only HQ proxies                     |
 | [ + ] Fully autonomous        | [ - ] Email verification needs dot method |
 | [ + ] No need to install libraries manually | [ - ] Python 3.11 needed    |
-
+___
 ### Premium
 
 | Pros                          | Cons                                      |
@@ -21,7 +21,7 @@ A fully autonomous steam account generator with email auto verification and a ga
 | [ + ] Cheap                   | [ - ] Only HQ proxies                     |
 | [ + ] Fully autonomous        | [ - ] Email verification needs dot method |
 | [ + ] Game Idler              | [ - ] A bit more complex to use           |
-
+___
 ### Basic
 
 | Pros                          | Cons                                      |
@@ -29,7 +29,7 @@ A fully autonomous steam account generator with email auto verification and a ga
 | [ + ] Cheaper                 | [ - ] Only HQ proxies                     |
 | [ + ] Semi autonomous         | [ - ] No auto mail verification           |
 | [ + ] Simpler to use          | [ - ] Less features                       |
-
+___
 # SteamGen Prices
 
 ## Key Types
