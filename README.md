@@ -50,7 +50,7 @@ Support: High priority
   * Dotter
 
 ```
-Price: $10 per key
+Price: $5 per key
 Duration: 1 month
 Support: Normal priority
 ```
