@@ -63,5 +63,7 @@ Support: Normal priority
 - <img src="https://cdn.discordapp.com/emojis/1115720358100746371.webp?size=44&quality=lossless" alt="usdt" width="22" height="22"> USDT: `0xf45f526e46fa3544d35ca27aed98503d6aa35a15`
   * No Fees
 
-# Discord
+# Socials
+
 https://discord.gg/Sztmu95aR4
+officialsteamgen@gmail.com
