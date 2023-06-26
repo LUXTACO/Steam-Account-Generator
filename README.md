@@ -64,4 +64,4 @@ Support: Normal priority
   * No Fees
 
 # Discord
-[https://discord.gg/NNzMbvzEeB](https://discord.gg/NNzMbvzEeB)
+https://discord.gg/Sztmu95aR4
