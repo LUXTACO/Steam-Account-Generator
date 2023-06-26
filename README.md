@@ -65,5 +65,6 @@ Support: Normal priority
 
 # Socials
 
-https://discord.gg/Sztmu95aR4
-officialsteamgen@gmail.com
+Discord: https://discord.gg/Sztmu95aR4
+<br><br>
+Email: officialsteamgen@gmail.com
