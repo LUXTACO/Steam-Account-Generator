@@ -56,12 +56,7 @@ Support: Normal priority
 ```
 ## Payment Methods
 
-- <img src="https://cdn.discordapp.com/emojis/1115655103093936259.webp?size=44&quality=lossless" alt="btc" width="22" height="22"> BTC: `1AbWch9GPT6msQpmojuPMnzjAMYcP8nLHJ`
-  * No Fees
-- <img src="https://cdn.discordapp.com/emojis/1115655101516873859.webp?size=44&quality=lossless" alt="eth" width="22" height="22"> ETH: `0xf45f526e46fa3544d35ca27aed98503d6aa35a15`
-  * No Fees
-- <img src="https://cdn.discordapp.com/emojis/1115720358100746371.webp?size=44&quality=lossless" alt="usdt" width="22" height="22"> USDT: `0xf45f526e46fa3544d35ca27aed98503d6aa35a15`
-  * No Fees
+#PROJECT NOT ACTIVE ANYMORE
 
 # Socials
 
