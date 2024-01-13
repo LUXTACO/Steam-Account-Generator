@@ -56,7 +56,7 @@ Support: Normal priority
 ```
 ## Payment Methods
 
-# PROJECT NOT ACTIVE ANYMORE
+## PROJECT NOT ACTIVE ANYMORE
 
 # Socials
 
