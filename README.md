@@ -54,12 +54,12 @@ Price: $5 per key
 Duration: 1 month
 Support: Normal priority
 ```
-## Payment Methods
-
-## PROJECT NOT ACTIVE ANYMORE
+# REBOOT INCOMING!!!
 
 # Socials
 
-Discord: https://discord.gg/Sztmu95aR4
-<br><br>
-Email: officialsteamgen@gmail.com
+<p align="center" >
+  <b> >>> JOIN THE DISCORD <<< </b>
+    <br>
+  https://discord.gg/PdeTUZ3M62
+</p>
